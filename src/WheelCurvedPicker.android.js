@@ -23,6 +23,7 @@ class WheelCurvedPicker extends PureComponent {
     ...ViewPropTypes,
     data: PropTypes.array,
     textColor: ColorPropType,
+      currentTextColor: ColorPropType,
     textSize: PropTypes.number,
     itemSpace: PropTypes.number,
     onValueChange: PropTypes.func.isRequired,
@@ -33,7 +34,8 @@ class WheelCurvedPicker extends PureComponent {
   static defaultProps = {
     textSize: 26,
     itemSpace: 20,
-    textColor: '#333',
+    textColor: '#dddddd',
+      currentTextColor: '#e60012',
   };
 
   onValueChange = ({ nativeEvent: { data } }) => this.props.onValueChange(data);

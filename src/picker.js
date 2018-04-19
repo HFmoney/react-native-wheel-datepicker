@@ -9,7 +9,7 @@ const PickerItem = WheelCurvedPicker.Item;
 
 const styles = StyleSheet.create({
   picker: {
-    backgroundColor: '#d3d3d3',
+    backgroundColor: 'white',
     height: 220,
   },
 });
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 export default class Picker extends Component {
   static propTypes = {
     textColor: ColorPropType,
+      currentTextColor: ColorPropType,
     textSize: PropTypes.number,
     itemSpace: PropTypes.number,
     itemStyle: ViewPropTypes.style,
@@ -29,6 +30,7 @@ export default class Picker extends Component {
 
   static defaultProps = {
     textColor: '#333',
+      currentTextColor: 'gray',
     textSize: 26,
     itemSpace: 20,
     itemStyle: null,
@@ -63,6 +65,7 @@ export default class Picker extends Component {
             key={index}
             value={typeof data.value !== 'undefined' ? data.value : data}
             label={typeof data.label !== 'undefined' ? data.label : data.toString()}
+            color={data.value === this.state.selectedValue ? this.props.currentTextColor : this.props.textColor}
           />
         ))}
       </WheelCurvedPicker>
